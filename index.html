@@ -20,6 +20,7 @@
       <a href="#problem">The problem</a>
       <a href="#dataset">Dataset</a>
       <a href="#results">Results</a>
+      <a href="#method">Method</a>
       <a href="#tryit">Try it</a>
       <a class="hl" href="https://arxiv.org/abs/2510.05644" target="_blank" rel="noopener">Read the paper</a>
     </nav>
@@ -203,6 +204,17 @@
       <li>On ChrF++ the model beats Google Translate in Twi, Yoruba, Arabic, Sesotho, Luganda and Tigrinya.</li>
       <li>Not every language improved. Fon fell slightly on ChrF++, and the score view above flags every language that did worse than the base model.</li>
       <li>Character matches and meaning scores can disagree. Ewe gained 30.43 ChrF++ points but only 0.04 on COMET, which is why the paper reports six scores.</li>
+    </ul>
+  </section>
+
+  <!-- ================= METHOD ================= -->
+  <section class="sheet" id="method">
+    <h2 class="page-title">How the experiment worked</h2>
+    <ul class="findings">
+      <li><strong>Base model:</strong> Llama-3.2-1B. Chosen because it can tokenise these languages but was never trained on them &mdash; so any improvement is attributable to the lab&rsquo;s data, not to memorisation.</li>
+      <li><strong>Training:</strong> full fine-tuning (parameter-efficient QLoRA was tried first and did not gain enough), one epoch, instruction template <code>&ldquo;Translate the following English text to X:&rdquo;</code>, NVIDIA H100 GPUs, learning rate 5&times;10<sup>&minus;5</sup>.</li>
+      <li><strong>Test set:</strong> FLORES-200, the standard multilingual benchmark &mdash; the same sentences in every language, so results are comparable.</li>
+      <li><strong>Metrics, in plain words:</strong> <strong>ChrF++</strong> compares character sequences, which matters for languages where one word can carry a lot of meaning; <strong>BLEU</strong> counts matching word sequences; <strong>COMET</strong> is a neural score for whether the <em>meaning</em> survived; <strong>AfriCOMET</strong> is COMET retrained for African language pairs; <strong>METEOR</strong> credits word stems and synonyms; <strong>TER</strong> counts the edits a human would need to fix the translation &mdash; lower is better.</li>
     </ul>
   </section>
 
