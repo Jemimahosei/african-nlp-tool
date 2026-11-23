@@ -5,248 +5,278 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The African Languages Lab — Interactive Research Demo</title>
 <meta name="description" content="An interactive demo of 'The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP' (Issaka et al., 2025). Dataset, results, and a try-it demo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Andika:ital,wght@0,400;0,700;1,400&family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=Noto+Naskh+Arabic:wght@400&family=Schoolbell&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="page">
 
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="kicker">Interactive research demo &middot; arXiv:2510.05644</div>
-    <h1>The African Languages Lab</h1>
-    <p class="subtitle">A collaborative approach to advancing low-resource African NLP</p>
-    <p class="byline">Sheriff Issaka and 19 co-authors &mdash; including <strong>Jemimah Osei</strong> (Cornell University) &middot; Submitted 7 October 2025</p>
-    <div class="paper-links">
-      <a class="btn btn-paper" href="https://arxiv.org/abs/2510.05644" target="_blank" rel="noopener">Read the paper on arXiv &nearr;</a>
-      <a class="btn btn-paper" href="https://ui.adsabs.harvard.edu/abs/2025arXiv251005644I/abstract" target="_blank" rel="noopener">ADS Abstract &nearr;</a>
-      <a class="btn btn-ghost" href="#demo">Try the demo &darr;</a>
-    </div>
+<header class="cover">
+  <div class="cover-inner">
+    <a class="brand" href="#top">African Languages Lab</a>
+    <nav class="mainnav" aria-label="Main">
+      <a href="#problem">The problem</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#results">Results</a>
+      <a href="#tryit">Try it</a>
+      <a class="hl" href="https://arxiv.org/abs/2510.05644" target="_blank" rel="noopener">Read the paper</a>
+    </nav>
   </div>
 </header>
 
-<nav class="toc">
-  <div class="toc-inner">
-    <a href="#problem">The problem</a>
-    <a href="#approach">What the lab did</a>
-    <a href="#dataset">The dataset</a>
-    <a href="#results">Model vs baseline</a>
-    <a href="#demo">Try it</a>
-    <a href="#team">People</a>
-    <a href="#limits">Limits &amp; ethics</a>
-  </div>
-</nav>
+<div class="col" id="top">
 
-<main>
-
-  <!-- HERO STATS -->
-  <section class="stats" aria-label="Headline numbers from the paper">
-    <div class="stat"><span class="stat-num">40</span><span class="stat-label">African languages in the dataset</span></div>
-    <div class="stat"><span class="stat-num">19B</span><span class="stat-label">tokens of monolingual text (19,012,019,696)</span></div>
-    <div class="stat"><span class="stat-num">12,628</span><span class="stat-label">hours of aligned speech data</span></div>
-    <div class="stat"><span class="stat-num">+23.69</span><span class="stat-label">average ChrF++ gain over baseline, 31 languages</span></div>
-    <div class="stat"><span class="stat-num">15</span><span class="stat-label">early-career researchers mentored</span></div>
-  </section>
-
-  <section class="lede">
-    <p><strong>In plain language:</strong> most of the world&rsquo;s languages are African, but almost none of them work well with modern AI. The African Languages Lab (All Lab) spent years collecting text and speech in 40 African languages, built a community platform so speakers themselves could contribute and check translations, and then used that data to teach a language model to translate English into those languages &mdash; far better than the model could before. This site lets you explore the dataset, the results, and try a small piece of the idea yourself.</p>
-    <p class="source-note">Every number on this page comes from the paper itself (Issaka et al., 2025) &mdash; Tables 1&ndash;3 and the abstract &mdash; and is cited where it appears. Nothing here is invented. The live model is not connected yet; the demo box below is explicit about what is real and what is a stand-in.</p>
-  </section>
-
-  <!-- PROBLEM -->
-  <section id="problem">
-    <h2><span class="sec-num">01</span> The problem</h2>
-    <p>Of the roughly 7,000 languages spoken in the world, fewer than 20 get serious attention from NLP research. Africa alone has more than 2,000 languages &mdash; nearly a third of all languages on Earth &mdash; yet <strong>88% of African languages are &ldquo;severely underrepresented&rdquo; or &ldquo;completely ignored&rdquo;</strong> in computational linguistics (Joshi et al., 2020). About 814 African languages are in danger of extinction. Nigeria, Cameroon and Ivory Coast have the most languages at severe risk (171, 75 and 65 respectively).</p>
-    <p>The research gap is measurable. Counting papers about the top 10 global languages versus the top 10 African languages (2020&ndash;2024), the paper finds a <strong>20&ndash;70&times; underrepresentation</strong>:</p>
-    <div class="gap-grid">
-      <div class="gap-row"><span>Google Scholar</span><div class="gap-bar"><div style="width:29%"></div></div><strong>20&times;</strong></div>
-      <div class="gap-row"><span>CORE</span><div class="gap-bar"><div style="width:33%"></div></div><strong>23&times;</strong></div>
-      <div class="gap-row"><span>arXiv</span><div class="gap-bar"><div style="width:49%"></div></div><strong>34&times;</strong></div>
-      <div class="gap-row"><span>IEEE</span><div class="gap-bar"><div style="width:100%"></div></div><strong>70&times;</strong></div>
+  <!-- ================= HOME ================= -->
+  <section class="hero">
+    <h1>The African Languages Lab</h1>
+    <p class="lede">Africa holds nearly a third of the world's languages, and almost none of them work well with AI. The lab gathers text and speech with the people who speak them, trains translation models on it, and mentors the young researchers doing the work.</p>
+    <p class="presented">Presented at ACL 2026 in San Diego. Twenty authors, including Jemimah Osei of Cornell.</p>
+    <div class="hero-actions">
+      <a class="btn" href="https://arxiv.org/abs/2510.05644" target="_blank" rel="noopener">Read the paper</a>
+      <a class="ghost" href="#tryit">Try the demo</a>
     </div>
-    <p class="caption">Table 1 of the paper: for every paper discussing African languages in multilingual LLM contexts, there are 20&ndash;70 papers on global languages, depending on the database.</p>
-    <p>That gap is not abstract. When a language has no usable data, it gets no working translation, no voice tools, no spell-check &mdash; and its speakers are shut out of education, healthcare information and the digital economy in their own language.</p>
   </section>
 
-  <!-- APPROACH -->
-  <section id="approach">
-    <h2><span class="sec-num">02</span> What the lab did</h2>
-    <p>Founded in 2020, the African Languages Lab attacks the gap on three fronts at once: collect the data, build the models, and train the people.</p>
-    <div class="cards">
-      <article class="card">
-        <h3>1 &middot; All Voices</h3>
-        <p>A mobile-first, community-driven data collection platform &mdash; the only one designed specifically for low-resource languages. Speakers translate directly between African languages <em>without English as an intermediary</em>. Translations are peer-reviewed: a translation only counts as verified after more than 5 upvotes and fewer than 3 downvotes from the community. Verified translations then become source material for further translations, so the data multiplies. Built with React Native and Firebase; contributions are consent-based and revocable, protected with AES-256 encryption at rest and TLS 1.3 in transit.</p>
-      </article>
-      <article class="card">
-        <h3>2 &middot; The dataset</h3>
-        <p>Community translations from All Voices, combined with curated open corpora (NLLB, CCMatrix, ParaCrawl, OpenSubtitles and others), cleaned with language-specific processing &mdash; tone-mark standardisation, script-variant normalisation, morphological analysis &mdash; and validated with a statistical framework that samples 10,000 translation pairs per language pair. The result is the largest validated African multi-modal speech and text dataset: <strong>19 billion tokens across 40 languages, plus 12,628 hours of aligned speech</strong>.</p>
-      </article>
-      <article class="card">
-        <h3>3 &middot; Models &amp; mentorship</h3>
-        <p>The team fine-tuned <strong>Llama-3.2-1B</strong> &mdash; a model that had never been trained on any of these African languages, giving a clean baseline &mdash; on the new data, and evaluated it on the FLORES-200 benchmark across 31 languages. In parallel, a structured programme mentored <strong>fifteen early-career researchers across four institutions</strong>, building local capacity to keep the work going.</p>
-      </article>
+  <section class="dictation">
+    <h2>Dictation</h2>
+    <p class="sub">The teacher reads this sentence aloud, the first line of the paper's abstract.</p>
+    <p class="sentence">Despite representing nearly one third of the world's languages, African languages remain critically underserved by modern NLP technologies, with 88% classified as severely underrepresented or completely ignored in computational linguistics.</p>
+    <p class="prompt">The lab's model wrote it down in</p>
+    <div class="lang-tabs" id="dictation-tabs" role="group" aria-label="Choose a language"></div>
+    <div class="dictation-output">
+      <svg width="34" height="34" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13l6 6L21 5" fill="none" stroke="#c8231c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <p class="dictation-text" id="dictation-text"></p>
     </div>
-    <h3>How the experiment worked</h3>
-    <ul class="method">
-      <li><strong>Base model:</strong> Llama-3.2-1B. Chosen because it can tokenise these languages but was never trained on them &mdash; so any improvement is attributable to the lab&rsquo;s data, not to memorisation.</li>
-      <li><strong>Training:</strong> full fine-tuning (parameter-efficient QLoRA was tried first and did not gain enough), one epoch, instruction template <code>&ldquo;Translate the following English text to X:&rdquo;</code>, NVIDIA H100 GPUs, learning rate 5&times;10<sup>&minus;5</sup>.</li>
-      <li><strong>Test set:</strong> FLORES-200, the standard multilingual benchmark &mdash; the same sentences in every language, so results are comparable.</li>
-      <li><strong>Metrics, in plain words:</strong> <strong>ChrF++</strong> compares character sequences, which matters for languages where one word can carry a lot of meaning; <strong>BLEU</strong> counts matching word sequences; <strong>COMET</strong> is a neural score for whether the <em>meaning</em> survived; <strong>AfriCOMET</strong> is COMET retrained for African language pairs; <strong>METEOR</strong> credits word stems and synonyms; <strong>TER</strong> counts the edits a human would need to fix the translation &mdash; lower is better.</li>
-    </ul>
+    <p class="redpen">Real output from the lab's fine tuned model, copied from Appendix B of the paper.</p>
   </section>
 
-  <!-- DATASET -->
-  <section id="dataset">
-    <h2><span class="sec-num">03</span> The dataset &mdash; 40 languages, two divides</h2>
-    <p>The data is not evenly spread, and the paper is honest about that. A few languages hold most of the text; a different few hold most of the audio. Amharic alone has 2.94 billion tokens; Fang has 0.02 million &mdash; a <strong>147,000&times; disparity</strong>. Languages with over 1 billion tokens average ChrF++ 45.66 after fine-tuning; those under 100 million average 24.31. The imbalance is part of the finding, not a footnote.</p>
-    <div class="table-tools">
-      <input id="dataset-search" type="search" placeholder="Filter languages&hellip; e.g. swahili" aria-label="Filter dataset languages">
-      <div class="sort-group" role="group" aria-label="Sort dataset">
-        <button data-sort="tokens" class="sort-btn active">By tokens</button>
-        <button data-sort="hours" class="sort-btn">By audio hours</button>
-        <button data-sort="name" class="sort-btn">A&ndash;Z</button>
+  <section class="statsline">
+    <p class="big"><span class="mark">40</span> languages. <span class="mark">19 billion</span> tokens of text. <span class="mark">12,628</span> hours of speech. On average <span class="mark">23.69</span> more ChrF++ points than the base model.</p>
+    <p class="note">All figures are from the paper. ChrF++ is a translation score from 0 to 100, and higher is better.</p>
+  </section>
+
+  <section class="problem" id="problem">
+    <h2>Most of these languages have almost no data for AI to learn from</h2>
+    <div class="problem-flex">
+      <div class="problem-text">
+        <p>Of about 7,000 languages worldwide, fewer than 20 get serious attention from language technology researchers. Africa has more than 2,000 of them. Of those, 88 percent are severely underrepresented or completely ignored in computational linguistics, and about 814 are in danger of dying out.</p>
+        <p>The research record shows the same gap. For every paper on African languages in multilingual models, there are 20 to 70 papers on the world's top languages, depending on the database.</p>
       </div>
-    </div>
-    <div class="table-wrap">
-      <table id="dataset-table">
-        <thead><tr><th>Language</th><th>Text (millions of tokens)</th><th></th><th>Speech (hours)</th><th>Resource tier</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <p class="caption">Table 2 of the paper. Tokens in millions; &ldquo;&mdash;&rdquo; means no audio data for that language in the dataset. Totals: 19,012,019,696 tokens &middot; 12,628 hours. 13 languages have no audio data at all (paper &sect;6.2).</p>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="results">
-    <h2><span class="sec-num">04</span> Model vs baseline &mdash; the results</h2>
-    <p>Fine-tuning on the lab&rsquo;s data improved the base model on every headline metric, averaged across the 31 evaluated languages:</p>
-    <div id="avg-chart" class="avg-chart" aria-label="Average scores: baseline vs fine-tuned vs Google Translate"></div>
-    <p class="avg-line"><strong>Average gains over baseline: +23.69 ChrF++, +0.33 COMET, +15.34 BLEU.</strong> (Abstract; Table 3 averages: ChrF++ 8.10 &rarr; 31.79, COMET 0.32 &rarr; 0.65, BLEU 2.27 &rarr; 17.61.) Translation edit effort fell by an average of <strong>580.13 TER points</strong> &mdash; Swahili&rsquo;s fine-tuned TER of 23.77 exactly matches Google Translate, meaning its output needs about as little post-editing as Google&rsquo;s.</p>
-
-    <h3>Every language, every metric</h3>
-    <p>Pick a metric. <strong>Baseline</strong> is the untouched Llama-3.2-1B; <strong>Fine-tuned</strong> is the lab&rsquo;s model; <strong>Google Translate</strong> is shown where it supports the language (&mdash; means no support). Nine languages were not evaluated: insufficient training data or absent from FLORES-200.</p>
-    <div class="table-tools">
-      <div class="metric-group" role="group" aria-label="Choose metric">
-        <button data-metric="chrf" class="metric-btn active">ChrF++</button>
-        <button data-metric="comet" class="metric-btn">COMET</button>
-        <button data-metric="bleu" class="metric-btn">BLEU</button>
-        <button data-metric="africomet" class="metric-btn">AfriCOMET</button>
-        <button data-metric="meteor" class="metric-btn">METEOR</button>
-        <button data-metric="ter" class="metric-btn">TER &darr;</button>
-      </div>
-      <input id="results-search" type="search" placeholder="Filter languages&hellip;" aria-label="Filter result languages">
-    </div>
-    <div class="table-wrap">
-      <table id="results-table">
-        <thead><tr><th>Language</th><th>Baseline</th><th>Fine-tuned</th><th>Change</th><th>Google Translate</th><th>Note</th></tr></thead>
-        <tbody></tbody>
-        <tfoot></tfoot>
-      </table>
-    </div>
-    <p class="caption">Table 3 of the paper (Issaka et al., 2025). Higher is better for every metric except TER, where lower is better. The paper prints Tshiluba&rsquo;s baseline BLEU as 5.856; shown here as printed. &ldquo;Afrkaans&rdquo; in the paper&rsquo;s table is corrected to Afrikaans.</p>
-
-    <h3>What stands out</h3>
-    <ul class="findings">
-      <li><strong>Swahili gained the most:</strong> ChrF++ 9.00 &rarr; 72.27 (+63.27), nearly matching Google Translate&rsquo;s 75.81. Its BLEU jumped 0.54 &rarr; 56.23 &mdash; above Google&rsquo;s 54.81.</li>
-      <li><strong>The fine-tuned model beats Google Translate</strong> on ChrF++ in Twi (46.80 vs 31.48), Yoruba (30.88 vs 21.05), Arabic (31.52 vs 28.46), Sesotho (61.79 vs 57.01), Luganda (24.91 vs 23.55) and Tigrinya (24.12 vs 23.75).</li>
-      <li><strong>Where Google still leads:</strong> high-resource cases like Kinyarwanda (24.65 vs 70.27) and Zulu (38.06 vs 64.45) &mdash; and in 9 languages Google offers no support at all, which is exactly the gap this work fills.</li>
-      <li><strong>Not every language improved:</strong> Fon&rsquo;s ChrF++ fell slightly (10.57 &rarr; 9.47, &minus;1.10), and Fon, Wolof and Bambara improved least &mdash; the paper flags morphologically complex languages as needing specialised tokenisation or architectures.</li>
-      <li><strong>Character gains aren&rsquo;t always meaning gains:</strong> Ewe improved +30.43 ChrF++ but only +0.04 COMET, while Arabic gained +0.33 COMET on a modest ChrF++ rise &mdash; which is why the paper reports six metrics, not one.</li>
-    </ul>
-  </section>
-
-  <!-- DEMO -->
-  <section id="demo">
-    <h2><span class="sec-num">05</span> Try it &mdash; what translation takes</h2>
-    <p>The lab&rsquo;s model isn&rsquo;t connected to this site yet. So this demo does two honest things: first, it shows you what a <em>naive</em> baseline does &mdash; the kind of word-by-word guessing that fails on real languages. Second, it shows real output from the lab&rsquo;s fine-tuned models, printed in the paper itself. The slot for the live model is below, ready to be switched on.</p>
-
-    <div class="demo-grid">
-      <article class="demo-box">
-        <h3>A &middot; The naive baseline <span class="tag tag-demo">toy &middot; runs in your browser</span></h3>
-        <p>Type an English sentence (or use a sample). This toy looks words up one by one in a tiny built-in Swahili dictionary of about 70 words &mdash; no grammar, no word order, no morphology. It is <strong>not</strong> the paper&rsquo;s model; it exists to show why word-by-word translation fails, and why the lab&rsquo;s fine-tuned model matters.</p>
-        <div class="sample-chips" id="sample-chips"></div>
-        <label for="toy-input">English sentence</label>
-        <textarea id="toy-input" rows="3">Hello, thank you. The child reads a book at school.</textarea>
-        <div class="demo-actions">
-          <button id="toy-run" class="btn btn-primary">Translate with the toy baseline</button>
-          <button id="toy-clear" class="btn btn-ghost">Clear</button>
+      <div class="gap-card">
+        <div class="gap-title">Papers on top global languages for each paper on African languages</div>
+        <div class="gap-grid">
+          <span>Google Scholar</span><span class="gap-track"><span class="gap-fill" style="width:29%"></span></span><strong class="num">20 times</strong>
+          <span>CORE</span><span class="gap-track"><span class="gap-fill" style="width:33%"></span></span><strong class="num">23 times</strong>
+          <span>arXiv</span><span class="gap-track"><span class="gap-fill" style="width:49%"></span></span><strong class="num">34 times</strong>
+          <span>IEEE</span><span class="gap-track"><span class="gap-fill" style="width:100%"></span></span><strong class="num">70 times</strong>
         </div>
-        <div id="toy-output" class="toy-output" aria-live="polite"></div>
-        <p class="caption">Unknown words are marked [?]. Articles (a / the) are dropped, because Swahili has none &mdash; already the first of many things a dictionary cannot know.</p>
-      </article>
+        <p class="caption">Table 1 of the paper, covering 2020 to 2024.</p>
+      </div>
+    </div>
+  </section>
 
-      <article class="demo-box">
-        <h3>B &middot; What the fine-tuned model produced <span class="tag tag-real">real &middot; from the paper</span></h3>
-        <p>The paper&rsquo;s Appendix B prints the abstract translated into 10 African languages, generated by the lab&rsquo;s fine-tuned models. Here is the opening sentence &mdash; &ldquo;Despite representing nearly one-third of the world&rsquo;s languages, African languages remain critically underserved by modern NLP technologies&hellip;&rdquo; &mdash; as the model rendered it:</p>
-        <div class="lang-tabs" id="appendix-tabs" role="tablist" aria-label="Appendix B languages"></div>
-        <blockquote id="appendix-output" class="appendix-output"></blockquote>
-        <p class="caption">Transcribed from Appendix B of Issaka et al. (2025). The full abstract appears in Afrikaans, Amharic, Shona, Xhosa, Swahili, Malagasy, Igbo, Hausa, Arabic and Somali.</p>
-      </article>
+  <section class="lab-does">
+    <h2>What the lab does about it</h2>
+    <div class="lab-row">
+      <h3>All Voices</h3>
+      <div class="lab-body"><p>A mobile app where speakers translate directly between African languages, with no English in the middle. A translation counts as verified after more than 5 upvotes and fewer than 3 downvotes from the community. Contributions are consent based and can be withdrawn.</p></div>
+    </div>
+    <div class="lab-row">
+      <h3>The dataset</h3>
+      <div class="lab-body"><p>Community translations plus open corpora, cleaned for tone marks, scripts and word structure. The result is 19 billion tokens across 40 languages, with 12,628 hours of aligned speech.</p><a class="go" href="#dataset">Browse the dataset</a></div>
+    </div>
+    <div class="lab-row">
+      <h3>Models and mentors</h3>
+      <div class="lab-body"><p>The team fine tuned a small Llama model on the data and tested it on 31 languages. Fifteen early career researchers at four institutions were mentored along the way.</p><a class="go" href="#results">See how it was marked</a></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-card">
+      <div class="cta-text">
+        <h2>Check the model's work yourself</h2>
+        <p>Pick any of the 31 languages and see how the base model, the lab's model and Google Translate scored. Then try the translator.</p>
+      </div>
+      <a class="btn" href="#tryit">Try the demo</a>
+    </div>
+  </section>
+
+  <!-- ================= DATASET ================= -->
+  <section class="sheet" id="dataset">
+    <h2 class="page-title">The dataset</h2>
+    <p class="page-lede">Text is concentrated in a few languages, and speech is scarcer still. Amharic has about 147,000 times more text than Fang. Ten of the 40 languages have no speech data in the paper's table.</p>
+
+    <div class="tools">
+      <div>
+        <label class="field-label" for="dataset-search">Find a language</label>
+        <input id="dataset-search" type="search" placeholder="For example Swahili" aria-label="Find a language">
+      </div>
+      <div>
+        <div class="field-label">Sort by</div>
+        <div class="pick-group" role="group" aria-label="Sort by">
+          <button type="button" class="pick-btn" data-sort="tokens" aria-pressed="true">Most text</button>
+          <button type="button" class="pick-btn" data-sort="hours" aria-pressed="false">Most speech</button>
+          <button type="button" class="pick-btn" data-sort="name" aria-pressed="false">A to Z</button>
+        </div>
+      </div>
+      <div class="count num" id="dataset-count" aria-live="polite"></div>
     </div>
 
-    <article class="model-slot" id="model-slot">
-      <h3>C &middot; Jem&rsquo;s model plugs in here <span class="tag tag-soon">coming next</span></h3>
-      <p><strong>Status: not connected.</strong> The live demo of the lab&rsquo;s fine-tuned model will live in this panel. When the model endpoint is ready, this box becomes a working translator: type English, pick a target language, get the model&rsquo;s translation with its ChrF++ context.</p>
-      <p>Integration contract (for the person wiring it up): <code>POST {MODEL_API_URL}/translate</code> with <code>{ "text": "…", "target_lang": "sw" }</code> returning <code>{ "translation": "…", "model": "all-lab-llama-3.2-1b-ft", "source_lang": "en" }</code>. Set <code>MODEL_API_URL</code> in <code>demo.js</code>; until it is set, this panel stays in this honest &ldquo;not yet&rdquo; state instead of faking output. See <code>README.md</code> for details.</p>
-    </article>
+    <div class="table-card">
+      <div class="ds-grid">
+        <div class="ds-head"><span>Language</span><span class="rnum">Text, million tokens</span><span></span><span class="rnum">Speech, hours</span><span></span></div>
+        <div class="empty" id="dataset-empty" hidden>
+          <div class="empty-title">No language matches that search.</div>
+          <p>Check the spelling, or clear the box to see all 40 languages.</p>
+          <button type="button" class="pri" id="dataset-clear">Clear search</button>
+        </div>
+        <div id="dataset-rows"></div>
+      </div>
+    </div>
+    <p class="caption ds-caption">Table 2 of the paper. Bars use one scale for all languages, so a very small bar means very little data, not a drawing error.</p>
   </section>
 
-  <!-- TEAM -->
-  <section id="team">
-    <h2><span class="sec-num">06</span> People</h2>
-    <p>Twenty authors, across UCLA, Georgia Tech, Wisconsin&ndash;Madison, Cape Coast, Carleton, Stetson, Northwestern University in Qatar, <strong>Cornell</strong>, Soka and Columbia. The lab&rsquo;s mentorship programme paired fifteen early-career researchers with mentors across four institutions.</p>
-    <ol class="authors">
-      <li>Sheriff Issaka <span>UCLA</span></li>
-      <li>Keyi Wang <span>Georgia Tech</span></li>
-      <li>Yinka Ajibola <span>Wisconsin&ndash;Madison</span></li>
-      <li>Oluwatumininu Samuel-Ipaye <span>Wisconsin&ndash;Madison</span></li>
-      <li>Zhaoyi Zhang <span>Wisconsin&ndash;Madison</span></li>
-      <li>Nicte Aguillon Jimenez <span>Wisconsin&ndash;Madison</span></li>
-      <li>Evans Kofi Agyei <span>U. of Cape Coast</span></li>
-      <li>Abraham Lin <span>Carleton</span></li>
-      <li>Rohan Ramachandran <span>Wisconsin&ndash;Madison</span></li>
-      <li>Sadick Abdul Mumin <span>Northwestern U. in Qatar</span></li>
-      <li>Faith Nchifor <span>Wisconsin&ndash;Madison</span></li>
-      <li>Mohammed Shuraim <span>Stetson</span></li>
-      <li>Lieqi Liu <span>UCLA</span></li>
-      <li>Erick Rosas Gonzalez <span>UCLA</span></li>
-      <li>Sylvester Kpei <span>Cornell</span></li>
-      <li class="jem">Jemimah Osei <span>Cornell</span> &mdash; this demo is hers</li>
-      <li>Carlene Ajeneza <span>Wisconsin&ndash;Madison</span></li>
-      <li>Persis Boateng <span>Soka</span></li>
-      <li>Prisca Adwoa Dufie Yeboah <span>Columbia</span></li>
-      <li>Saadia Gabriel <span>UCLA</span></li>
-    </ol>
-  </section>
+  <!-- ================= RESULTS ================= -->
+  <section class="sheet" id="results">
+    <h2 class="page-title">The results</h2>
+    <p class="page-lede">The team fine tuned a small Llama model to translate English into 31 African languages, then scored it against the untouched base model and, where it supports the language, Google Translate.</p>
 
-  <!-- LIMITS -->
-  <section id="limits">
-    <h2><span class="sec-num">07</span> Limits &amp; ethics, honestly</h2>
-    <p>The paper states its own limits, and this demo repeats them rather than hiding them:</p>
+    <div class="tools" style="margin-top:32px">
+      <div>
+        <div class="field-label">Score</div>
+        <div class="pick-group" role="group" aria-label="Choose a score">
+          <button type="button" class="pick-btn" data-metric="chrf" aria-pressed="true">ChrF++</button>
+          <button type="button" class="pick-btn" data-metric="comet" aria-pressed="false">COMET</button>
+          <button type="button" class="pick-btn" data-metric="bleu" aria-pressed="false">BLEU</button>
+          <button type="button" class="pick-btn" data-metric="africomet" aria-pressed="false">AfriCOMET</button>
+          <button type="button" class="pick-btn" data-metric="meteor" aria-pressed="false">METEOR</button>
+          <button type="button" class="pick-btn" data-metric="ter" aria-pressed="false">TER</button>
+        </div>
+        <p class="metric-explain" id="metric-explain" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <div class="summary-line num" id="results-summary"></div>
+      <p id="results-summary-note"></p>
+    </div>
+
+    <div class="tools">
+      <div>
+        <label class="field-label" for="results-search">Find a language</label>
+        <input id="results-search" type="search" placeholder="For example Yoruba" aria-label="Find a language">
+      </div>
+      <div>
+        <div class="field-label">Sort by</div>
+        <div class="pick-group" role="group" aria-label="Sort by">
+          <button type="button" class="pick-btn" data-rsort="gain" aria-pressed="true">Biggest improvement</button>
+          <button type="button" class="pick-btn" data-rsort="name" aria-pressed="false">A to Z</button>
+        </div>
+      </div>
+      <div class="legend">
+        <span><span class="dot-base"></span>Base model</span>
+        <span><span class="dot-ours"></span>Fine tuned</span>
+        <span><span class="mark-gt"></span>Google Translate</span>
+      </div>
+    </div>
+
+    <p class="redpen redpen-note">Red pen: one tick means better than the base model, two ticks mean better than Google Translate too, a cross means worse.</p>
+
+    <div class="table-card">
+      <div class="rs-grid">
+        <div class="rs-head"><span>Language</span><span></span><span class="rnum">Base</span><span class="rnum">Tuned</span><span class="rnum">Google</span><span class="rnum">Change</span><span></span></div>
+        <div class="empty" id="results-empty" hidden>
+          <div class="empty-title">No language matches that search.</div>
+          <p>Check the spelling, or clear the box to see all 31 languages.</p>
+          <button type="button" class="pri" id="results-clear">Clear search</button>
+        </div>
+        <div id="results-rows"></div>
+      </div>
+    </div>
+    <p class="caption">Table 3 of the paper. Every language uses the same scale within a score. Base model values that fall past the right edge of the TER scale sit at the edge, and their number is in the Base column.</p>
+
+    <h3 class="findings-title">What stands out</h3>
     <ul class="findings">
-      <li>Only one base model was tried (Llama-3.2-1B); larger architectures might do better, and the best model probably varies by language family.</li>
-      <li>Only 31 of the 40 collected languages were evaluated &mdash; FLORES-200 does not cover the other nine, which are among the most under-resourced.</li>
-      <li>13 languages have no audio data at all, and validation ran without native-speaker verification for 73% of languages.</li>
-      <li>Data collection is consent-based and revocable through All Voices, with community reporting for offensive content; some dataset components are under managed access out of respect for contributing communities.</li>
-      <li>The work is guided by Ubuntu philosophy &mdash; inclusivity, interdependence and openness &mdash; and framed as a contribution to the UN Sustainable Development Goals on education and inequality.</li>
+      <li>Swahili reached 72.27 ChrF++, up from 9.00 for the base model and close to Google Translate at 75.81.</li>
+      <li>On ChrF++ the model beats Google Translate in Twi, Yoruba, Arabic, Sesotho, Luganda and Tigrinya.</li>
+      <li>Not every language improved. Fon fell slightly on ChrF++, and the score view above flags every language that did worse than the base model.</li>
+      <li>Character matches and meaning scores can disagree. Ewe gained 30.43 ChrF++ points but only 0.04 on COMET, which is why the paper reports six scores.</li>
     </ul>
   </section>
 
-  <!-- SOURCES -->
-  <section id="sources">
-    <h2>Sources &amp; citation</h2>
-    <p class="citation">Issaka, S., Wang, K., Ajibola, Y., Samuel-Ipaye, O., Zhang, Z., Aguillon Jimenez, N., Agyei, E. K., Lin, A., Ramachandran, R., Mumin, S. A., Nchifor, F., Shuraim, M., Liu, L., Rosas Gonzalez, E., Kpei, S., Osei, J., Ajeneza, C., Boateng, P., Yeboah, P. A. D., &amp; Gabriel, S. (2025). <em>The African Languages Lab: A Collaborative Approach to Advancing Low-Resource African NLP.</em> arXiv:2510.05644 [cs.CL].</p>
-    <div class="paper-links">
-      <a class="btn btn-paper" href="https://arxiv.org/abs/2510.05644" target="_blank" rel="noopener">arXiv:2510.05644 &nearr;</a>
-      <a class="btn btn-paper" href="https://arxiv.org/pdf/2510.05644" target="_blank" rel="noopener">Full PDF &nearr;</a>
-      <a class="btn btn-paper" href="https://ui.adsabs.harvard.edu/abs/2025arXiv251005644I/abstract" target="_blank" rel="noopener">NASA ADS &nearr;</a>
+  <!-- ================= TRY IT ================= -->
+  <section class="sheet" id="tryit">
+    <h2 class="page-title ruled">Check the model's work</h2>
+    <p class="page-lede-lg">Look up how the lab's model scored in any of the 31 languages it was tested on, then give the translator a sentence.</p>
+
+    <div class="tryit-block">
+      <h2>Look up a language</h2>
+      <div class="lookup-controls">
+        <div>
+          <label class="field-label" for="lookup-lang">Language</label>
+          <select id="lookup-lang"></select>
+        </div>
+        <p class="redpen lookup-remark" id="lookup-remark" aria-live="polite"></p>
+      </div>
+
+      <div class="score-card">
+        <div class="score-grid">
+          <div class="score-head"><span></span><span class="rnum">ChrF++</span><span class="rnum">COMET</span><span class="rnum">BLEU</span></div>
+          <div id="lookup-rows"></div>
+        </div>
+      </div>
+
+      <div class="sample-block" id="lookup-sample" hidden>
+        <div class="sample-title">What the model wrote for the paper's first sentence</div>
+        <p class="sample-text" id="lookup-sample-text"></p>
+        <p class="sample-note">Copied from Appendix B of the paper. Some of the model's choices are rough, and the paper says so.</p>
+      </div>
+      <p class="no-sample" id="lookup-nosample" hidden>The paper does not print a sample sentence in this language on this page yet.</p>
     </div>
-    <p class="caption">All figures on this page are from the paper: abstract (headline gains), Table 1 (representation gap), Table 2 (dataset composition), Table 3 (translation results), &sect;6.2 (limitations), Appendix B (model-translated abstracts). No other numbers are used.</p>
+
+    <div class="tryit-block second">
+      <h2>Translate a sentence</h2>
+      <p style="margin:0;max-width:36em;color:#3a4054">English in, one of six African languages out.</p>
+      <div class="translate-flex">
+        <div class="translate-left">
+          <label for="translate-input">English sentence</label>
+          <textarea id="translate-input" rows="5" maxlength="400">Despite representing nearly one third of the world's languages, African languages remain critically underserved by modern NLP technologies, with 88% classified as severely underrepresented or completely ignored in computational linguistics.</textarea>
+          <div class="translate-controls">
+            <label class="inline-label" for="translate-lang">Into</label>
+            <select id="translate-lang"></select>
+            <button type="button" class="btn" id="translate-run">Translate</button>
+          </div>
+        </div>
+
+        <div class="translate-panel" id="translate-panel" aria-live="polite">
+          <div class="idle" id="translate-idle">The translation appears here.</div>
+          <div id="translate-result" hidden>
+            <div class="out-lang" id="translate-out-lang"></div>
+            <p class="out-text" id="translate-out-text"></p>
+            <p class="redpen out-note">This is the paper's own output for this sentence, from Appendix B.</p>
+          </div>
+          <div id="translate-offline" hidden>
+            <div class="offline-title">The model is not switched on yet</div>
+            <p class="offline-body">The lab's model is not hosted online, so this box can only show the paper's own sentence. It cannot translate new text until the model is connected.</p>
+            <button type="button" class="ghost" id="translate-usepaper">Use the paper's sentence</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-</main>
+</div><!-- /.col -->
 
-<footer>
-  <p>An interactive demo of Issaka et al. (2025), built for Jemimah Osei&rsquo;s portfolio. The research is the authors&rsquo;; this site only presents it. The toy baseline in the demo is a teaching stand-in, clearly labelled &mdash; it is not the lab&rsquo;s model.</p>
+<footer class="site">
+  <div class="footer-inner">
+    <span class="foot-note">Every number on this site comes from the paper by Issaka and colleagues, presented at ACL 2026 and posted as arXiv 2510.05644.</span>
+    <span>Interactive demo by Jemimah Osei.</span>
+  </div>
 </footer>
+
+</div><!-- /.page -->
 
 <script src="data.js"></script>
 <script src="demo.js"></script>
